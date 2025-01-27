@@ -1,0 +1,3 @@
+message = Enter your name
+message.name = Name:
+Message.buttonName = Send
