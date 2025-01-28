@@ -1,13 +1,13 @@
 package com.example.demo2.domain;
 
-public class User {
-
+public class Users {
     private String name;
-    private  String comment;
+    private String comment;
 
 
     
-    public User(String name, String comment) {
+
+    public Users(String name, String comment) {
         this.name = name;
         this.comment = comment;
     }
@@ -23,6 +23,7 @@ public class User {
     public void setComment(String comment) {
         this.comment = comment;
     }
+
     
 
 

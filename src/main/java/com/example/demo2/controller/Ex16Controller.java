@@ -5,11 +5,13 @@ package com.example.demo2.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.catalina.User;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
+
+import com.example.demo2.domain.Users;
 
 import jakarta.servlet.ServletContext;
 
@@ -24,7 +26,8 @@ public class Ex16Controller {
 
     @RequestMapping("")
     public String index(){
-        List<User> userList = (List<User>) application.getAttribute("userList");
+        @SuppressWarnings("unchecked")
+        List<Users> userList = (List<Users>) application.getAttribute("userList");
     if(userList == null){
             
             userList = new ArrayList<>();
@@ -36,13 +39,14 @@ public class Ex16Controller {
     }
 
     @RequestMapping("/chat-page")
-    public String post(@RequestParam("name") String name,@RequestParam("comment")String comment){
+    public String post(String name,String comment){
+        @SuppressWarnings("unchecked")
+        List<Users> userList = (List<Users>) application.getAttribute("userList");
 
-        List<User> userList = (List<User>) application.getAttribute("userList");
 
 
       
-      userList.add(0,new User(name,comment));
+      userList.add(0,new Users(name,comment));
         
 
 
